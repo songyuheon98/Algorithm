@@ -13,5 +13,11 @@ class Solution {
             result.add(row);
         }
         return result.stream().map(sub->sub.stream().mapToInt(Integer::intValue).toArray()).toArray(int[][]::new);
+            //        int [][]answer=new int[len][len2];
+//
+//        for (int i = 0; i < len; i++)
+//            for (int j = 0; j < len2; j++)
+//                answer[i][j]=arr1[i][j]+arr2[i][j];
+//        return answer;
 }
 }
