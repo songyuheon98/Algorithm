@@ -8,11 +8,6 @@ class Solution {
             s+=String.valueOf(ten%3);
             ten/=3;
         }
-        for (int i = 0; i < s.length(); i++) {
-            int val =Integer.parseInt(String.valueOf(s.charAt(s.length()-1-i)));
-            result= (i==0)?result+val: result + (int)(val * Math.pow(3, i));
-        }
-
-        return result;
+        return Integer.parseInt(new StringBuilder(s).toString(),3);
     }
 }
