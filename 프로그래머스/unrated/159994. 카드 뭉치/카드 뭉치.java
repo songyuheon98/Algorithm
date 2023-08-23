@@ -2,19 +2,19 @@ import java.util.*;
 
 class Solution {
     public String solution(String[] cards1, String[] cards2, String[] goal) {
-         String answer = "Yes";
-        ArrayList cards1List = new ArrayList(Arrays.asList(cards1));
-        ArrayList cards2List = new ArrayList(Arrays.asList(cards2));
-
-        for(int i=0; i < goal.length; i++) {
-            if( cards1List.size() > 0 && goal[i].equals(cards1List.get(0))){
-                cards1List.remove(0);
-            } else if (cards2List.size() > 0 && goal[i].equals(cards2List.get(0))){
-                cards2List.remove(0);
-            } else {
-                answer = "No";
-            }
+        List<String> c1 = new LinkedList<>(List.of(cards1));
+        List<String> c2 = new LinkedList<>(List.of(cards2));
+        for (String t:goal) {
+            int c1_index=c1.indexOf(t),c2_index=c2.indexOf(t);
+            if(c1_index==0)
+                c1.remove(0);
+            
+            else if(c2_index==0)
+                c2.remove(0);
+            
+            else
+                return "No";
         }
-        return answer;
+        return "Yes";
     }
 }
