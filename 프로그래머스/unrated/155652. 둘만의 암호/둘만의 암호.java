@@ -1,29 +1,24 @@
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.*;
 class Solution {
     public String solution(String s, String skip, int index) {
-        StringBuilder answer = new StringBuilder();
+        String answer = "";
+        int tempIndex;
         Set<Character> skipSet = new HashSet<>();
-        for (char c : skip.toCharArray()) {
+        for(char c : skip.toCharArray())
             skipSet.add(c);
-        }
-
         for (char c : s.toCharArray()) {
-            int tempIndex = index;
-            char newChar = c;
-            while (tempIndex > 0) {
-                newChar++;
-                if (newChar > 'z') {
-                    newChar = 'a';
-                }
-                if (!skipSet.contains(newChar)) {
+            tempIndex = index;
+            char tempChar = c;
+            while(tempIndex>0){
+                tempChar++;
+                if(tempChar>'z')
+                    tempChar = 'a';
+                if(!skipSet.contains(tempChar))
                     tempIndex--;
-                }
             }
-            answer.append(newChar);
-        }
+            answer+=tempChar;
 
-        return answer.toString();
+        }
+        return answer;
     }
 }
